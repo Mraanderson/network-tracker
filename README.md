@@ -2,15 +2,19 @@
 
 AI overview below that will be cleaned up to make sense to a human, soon.
 
-A lightweight, automated network discovery and asset tracking tool designed for home labs. The script performs a periodic subnet sweep using nmap, stores device states (online/offline/vendor) in an SQLite database, and generates both a modern, dark-mode HTML dashboard and a lightweight text payload for external hardware displays (like a Raspberry Pi Zero).
-Features
-Dynamic Asset Discovery: Automatically detects new devices on the local subnet without manual configuration.
-Vendor Identification: Maps MAC addresses to hardware manufacturers using Nmap's database.
-Persistent State Tracking: Tracks historical presence and prunes stale devices unseen for more than 7 days.
-Dual Output Modes:
-HTML Dashboard: A beautifully styled, mobile-responsive dark-mode status page.
-Text Payload (status.txt): A raw string optimized for ultra-low-overhead parsing by microcontrollers or single-board computers.
-System Architecture
+A lightweight, automated network discovery and asset tracking tool designed for home labs.
+
+The script performs a periodic subnet sweep using nmap, stores device states (online/offline/vendor) in an SQLite database, and generates both a modern, dark-mode HTML dashboard and a lightweight text payload for external hardware displays (like a Raspberry Pi Zero).
+
+# Features
+- Dynamic Asset Discovery: Automatically detects new devices on the local subnet without manual configuration.
+- Vendor Identification: Maps MAC addresses to hardware manufacturers using Nmap's database.
+- Persistent State Tracking: Tracks historical presence and prunes stale devices unseen for more than 7 days.
+- Dual Output Modes:
+- HTML Dashboard: A beautifully styled, mobile-responsive dark-mode status page.
+- Text Payload (status.txt): A raw string optimized for ultra-low-overhead parsing by microcontrollers or single-board computers.
+
+# System Architecture
 The workflow follows a simple automated pipeline:
 [Cron Job] -> [tracker.py] -> [nmap Subnet Scan] -> [SQLite DB Update]
 |
